@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      All Post
+      Post by Category
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -29,7 +29,9 @@
 
         <ion-card *ngFor="let post of item_post_by_kategori" href="/detail-post/{{post.idpost}}">
           <ion-card-header>
-            <img src="https://pbpblog.000webhostapp.com/assets/upload/post/{{post.gambar_post}}" />
+            <div style="text-align: center;">
+              <img src="https://pbpblog.000webhostapp.com/assets/upload/post/{{post.gambar_post}}" />
+            </div>
             <ion-card-title>{{post.judul}}</ion-card-title>
             <ion-card-subtitle>
               <ion-icon name="calendar-outline"></ion-icon> {{post.tgl_update}}
