@@ -30,8 +30,4 @@ export class Tab3Page {
     });
   }
 
-  selectVal(val) {
-    alert("you have selected = " + val);
-  }
-
 }

@@ -14,26 +14,29 @@
   </ion-header>
 
   <ion-grid>
+    <ion-item>
+      <ion-label>Category</ion-label>
+      <ion-select [(ngModel)]="selectedVal" (ionChange)="OnChange($event)" placeholder="Please Select a Category">
+        <ion-select-option *ngFor="let kategori of kategori" [value]="kategori.idkategori">
+          {{kategori.nama}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
     <ion-row>
       <ion-col size="0" size-sm="2" push="0" push-lg="10"></ion-col>
       <ion-col size="12" size-sm="8">
 
-        <ion-card *ngFor="let all of allPost">
-          <!-- <ion-item>
-              <ion-icon name="pin" slot="start"></ion-icon>
-            <ion-label>ion-item in a card, icon left, button right</ion-label>
-            <ion-button fill="outline" slot="end">View</ion-button>
-          </ion-item> -->
-
+        <ion-card *ngFor="let post of item_post_by_kategori" href="/detail-post/{{post.idpost}}">
           <ion-card-header>
-            <img src="https://pbpblog.000webhostapp.com/assets/upload/post/{{all.gambar_post}}" />
-            <ion-card-title>{{all.judul}}</ion-card-title>
-            <ion-card-subtitle>laast update {{all.tgl_insert}}</ion-card-subtitle>
-            <ion-card-subtitle>by {{all.nama}}</ion-card-subtitle>
+            <img src="https://pbpblog.000webhostapp.com/assets/upload/post/{{post.gambar_post}}" />
+            <ion-card-title>{{post.judul}}</ion-card-title>
+            <ion-card-subtitle>last update {{post.tgl_update}}</ion-card-subtitle>
+            <ion-card-subtitle>by {{post.nama}}</ion-card-subtitle>
           </ion-card-header>
 
           <ion-card-content>
-            <div [innerHTML]="all.isi_post"></div>
+            <div [innerHTML]="post.isi_post"></div>
           </ion-card-content>
         </ion-card>
       </ion-col>

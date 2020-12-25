@@ -18,17 +18,11 @@
       <ion-col size="0" size-sm="2" push="0" push-lg="10"></ion-col>
       <ion-col size="12" size-sm="8">
 
-        <ion-card *ngFor="let recent of recentPost">
-          <!-- <ion-item>
-              <ion-icon name="pin" slot="start"></ion-icon>
-            <ion-label>ion-item in a card, icon left, button right</ion-label>
-            <ion-button fill="outline" slot="end">View</ion-button>
-          </ion-item> -->
-
+        <ion-card *ngFor="let recent of recentPost" href="/detail-post/{{recent.idpost}}">
           <ion-card-header>
             <img src="https://pbpblog.000webhostapp.com/assets/upload/post/{{recent.gambar_post}}" />
             <ion-card-title>{{recent.judul}}</ion-card-title>
-            <ion-card-subtitle>laast update {{recent.tgl_insert}}</ion-card-subtitle>
+            <ion-card-subtitle>last update {{recent.tgl_update}}</ion-card-subtitle>
             <ion-card-subtitle>by {{recent.nama}}</ion-card-subtitle>
           </ion-card-header>
 
@@ -40,10 +34,5 @@
       <ion-col size="0" size-sm="2" push="0" push-lg="10"></ion-col>
     </ion-row>
   </ion-grid>
-
-  <!-- Expand -->
-  <ion-button expand="block">All Post</ion-button>
-
-  <br>
 
 </ion-content>

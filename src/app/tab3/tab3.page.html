@@ -20,7 +20,7 @@
 
   <!-- List of Text Items -->
   <ion-list>
-    <ion-item (click)="selectVal(items.judul)" *ngFor="let items of items">
+    <ion-item *ngFor="let items of items" href="/detail-post/{{items.idpost}}">
       <ion-label>{{items.judul}}</ion-label>
     </ion-item>
   </ion-list>

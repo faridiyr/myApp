@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-header translucent>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Detail Post</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-header>
+<ion-content>
+
+  <ion-card>
+    <ion-card-header>
+      <img src="https://pbpblog.000webhostapp.com/assets/upload/post/{{item?.gambar_post}}" />
+      <ion-card-title>{{item?.judul}}</ion-card-title>
+      <ion-card-subtitle>kategori {{item?.nama_kategori}}</ion-card-subtitle>
+      <ion-card-subtitle>last update {{item?.tgl_update}}</ion-card-subtitle>
+      <ion-card-subtitle>by {{item?.nama}}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div [innerHTML]="item?.isi_post"></div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-list>
+        <ion-list-header>
+          Recent Comments
+        </ion-list-header>
+        <ion-item *ngFor="let comment of item_comment">
+          <ion-avatar slot="start">
+            <img src="https://pbpblog.000webhostapp.com/assets/upload/avatar/{{comment.gambar}}">
+          </ion-avatar>
+          <ion-label>
+            <h2>{{comment.nama}}</h2>
+            <h3>{{comment.tgl_update}}</h3>
+            <p>{{comment.isi}}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
