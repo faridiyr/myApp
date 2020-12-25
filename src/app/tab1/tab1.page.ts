@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ContentService } from '../shared/api/content.service';
 
 @Component({
   selector: 'app-tab1',
@@ -6,7 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
+  recentPost = [];
 
-  constructor() {}
+  constructor(private contentService: ContentService) {
+    this.contentService.getRecentPost().subscribe(
+      response => {
+        this.recentPost = response;
+      }
+    )
+  }
 
 }

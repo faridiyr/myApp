@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Search
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,46 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
+      <ion-title size="large">Search</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <!-- Searchbar in a Toolbar -->
+  <ion-toolbar>
+    <ion-searchbar animated [(ngModel)]="searchJudul" (keyup)="search($event)"></ion-searchbar>
+  </ion-toolbar>
+
+  <!-- List of Text Items -->
+  <ion-list>
+    <ion-item (click)="selectVal(items.judul)" *ngFor="let items of items">
+      <ion-label>{{items.judul}}</ion-label>
+    </ion-item>
+  </ion-list>
+
+
+
+
+
+  <script>
+    const searchbar = document.querySelector('ion-searchbar');
+    const items = Array.from(document.querySelector('ion-list').children);
+
+    searchbar.addEventListener('ionInput', handleInput);
+
+    function handleInput(event) {
+      const query = event.target.value.toLowerCase();
+      requestAnimationFrame(() => {
+        items.forEach(item => {
+          const shouldShow = item.textContent.toLowerCase().indexOf(query) > -1;
+          item.style.display = shouldShow ? 'block' : 'none';
+        });
+      });
+    }
+  </script>
+
+
+
+
+
+
 </ion-content>
