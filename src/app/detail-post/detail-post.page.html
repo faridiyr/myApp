@@ -13,13 +13,19 @@
   <ion-card>
     <ion-card-header>
       <img src="https://pbpblog.000webhostapp.com/assets/upload/post/{{item?.gambar_post}}" />
-      <ion-card-title>{{item?.judul}}</ion-card-title>
-      <ion-card-subtitle>kategori {{item?.nama_kategori}}</ion-card-subtitle>
-      <ion-card-subtitle>last update {{item?.tgl_update}}</ion-card-subtitle>
-      <ion-card-subtitle>by {{item?.nama}}</ion-card-subtitle>
+      <ion-card-title> {{item?.judul}} </ion-card-title>
+      <ion-card-subtitle>
+        <ion-icon name="albums-outline"></ion-icon> {{item?.nama_kategori}}
+      </ion-card-subtitle>
+      <ion-card-subtitle>
+        <ion-icon name="calendar-outline"></ion-icon> {{item?.tgl_update}}
+      </ion-card-subtitle>
+      <ion-card-subtitle>
+        <ion-icon name="person-outline"></ion-icon> {{item?.nama}}
+      </ion-card-subtitle>
     </ion-card-header>
 
-    <ion-card-content>
+    <ion-card-content style="text-align: justify;">
       <div [innerHTML]="item?.isi_post"></div>
     </ion-card-content>
   </ion-card>

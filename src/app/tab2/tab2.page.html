@@ -31,11 +31,15 @@
           <ion-card-header>
             <img src="https://pbpblog.000webhostapp.com/assets/upload/post/{{post.gambar_post}}" />
             <ion-card-title>{{post.judul}}</ion-card-title>
-            <ion-card-subtitle>last update {{post.tgl_update}}</ion-card-subtitle>
-            <ion-card-subtitle>by {{post.nama}}</ion-card-subtitle>
+            <ion-card-subtitle>
+              <ion-icon name="calendar-outline"></ion-icon> {{post.tgl_update}}
+            </ion-card-subtitle>
+            <ion-card-subtitle>
+              <ion-icon name="person-outline"></ion-icon> {{post.nama}}
+            </ion-card-subtitle>
           </ion-card-header>
 
-          <ion-card-content>
+          <ion-card-content style="text-align: justify;">
             <div [innerHTML]="post.isi_post"></div>
           </ion-card-content>
         </ion-card>
